@@ -137,3 +137,9 @@ nav a[aria-current="page"]{color:var(--fg)}
 @media (prefers-contrast:more){:root{--line:#6b749c;--mut:#c4cae0}}
 .brand{display:inline-flex;align-items:center;min-height:44px}
 .path li{margin:.7em 0}
+.chk input{width:24px;height:24px}
+.path li a,footer a{display:inline-block;padding:.5em 0}
+.term-form button{min-height:44px}
+@media (pointer:coarse){.term-hints button{min-height:44px;padding:4px 14px}}
+@media (prefers-color-scheme:light){code,kbd{background:rgba(60,50,90,.09)}}
+h3 code{color:var(--fg)}

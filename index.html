@@ -6,18 +6,29 @@
 <title>ARRA กับ Oracle คืออะไร · ARRA Assistance</title>
 <meta name="description" content="คู่มือภาษาไทยสำหรับมือใหม่ที่ไม่เคยใช้ terminal: ติดตั้ง ARRA จดความรู้ ค้นกลับมาเจอ และปลุก Oracle ของตัวเอง">
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.className+=" js"</script>
 </head>
 <body>
 <header>
   <a class="brand" href="index.html">ARRA Assistance</a>
   <span class="sub">คู่มือเริ่มต้นสำหรับ Oracle School</span>
+  <div class="prog"><span id="progtxt"></span><div class="bar"><i id="progbar"></i></div></div>
 </header>
-<nav aria-label="ขั้นตอน"><a href="index.html" class="on"><b>1</b> ARRA กับ Oracle คืออะไร</a><a href="terminal.html"><b>2</b> เปิด terminal ครั้งแรก</a><a href="agent.html"><b>3</b> ติดตั้ง AI agent</a><a href="install-arra.html"><b>4</b> ติดตั้ง ARRA</a><a href="first-memory.html"><b>5</b> จดความรู้แรก แล้วค้นกลับมาเจอ</a><a href="awaken.html"><b>6</b> ปลุก Oracle ของตัวเอง</a><a href="stuck.html"><b>7</b> ติดแล้วทำอย่างไร</a></nav>
+<nav aria-label="ขั้นตอน"><a href="index.html" data-page="p1" class="on"><b>1</b> ARRA กับ Oracle คืออะไร</a><a href="terminal.html" data-page="p2"><b>2</b> เปิด terminal ครั้งแรก</a><a href="agent.html" data-page="p3"><b>3</b> ติดตั้ง AI agent</a><a href="install-arra.html" data-page="p4"><b>4</b> ติดตั้ง ARRA</a><a href="first-memory.html" data-page="p5"><b>5</b> จดความรู้แรก แล้วค้นกลับมาเจอ</a><a href="awaken.html" data-page="p6"><b>6</b> ปลุก Oracle ของตัวเอง</a><a href="stuck.html" data-page="p7"><b>7</b> ติดแล้วทำอย่างไร</a></nav>
 <main>
 <p class="step">ขั้นที่ 1 จาก 7</p>
 <h1>ARRA กับ Oracle คืออะไร</h1>
 
 <p class="lead">หน้านี้เล่าภาพรวมสั้น ๆ ก่อนลงมือ อ่านจบใน 2 นาที</p>
+<section class="mem3d" aria-labelledby="mem-h">
+<h2 id="mem-h">ลองเล่น: สมุดความจำ 3 มิติ</h2>
+<p>ลากเพื่อหมุน · จดโน้ตของคุณแล้วดูมันลอยเข้ามา · พิมพ์คำเพื่อค้นแล้วดูดวงที่ตรงสว่างขึ้น นี่คือสิ่งที่ ARRA ทำ แต่ย่อให้เห็นภาพ</p>
+<div class="mem-stage"><canvas class="mem-canvas" role="img" aria-label="ภาพสามมิติของอะตอมที่มีโน้ตความจำลอยอยู่รอบนิวเคลียส ลากเพื่อหมุนได้"></canvas></div>
+<form class="mem-add"><label class="sr" for="mem-note">จดโน้ต</label><input id="mem-note" type="text" maxlength="60" placeholder="จดอะไรสักอย่าง เช่น แมวชอบนอนบนโซฟา"><button type="submit">จด</button></form>
+<form class="mem-find"><label class="sr" for="mem-q">ค้นคำ</label><input id="mem-q" type="search" placeholder="ค้นคำ เช่น แมว หรือ note"></form>
+<p class="mem-status" aria-live="polite"></p>
+<p class="mem-note">ภาพจำลองในเบราว์เซอร์ ไม่ได้เชื่อมต่อ ARRA จริงและไม่ได้บันทึกอะไรไว้ที่ไหน ของจริงค้นด้วยคำ (FTS5) ผลอาจต่างจากนี้ โดยเฉพาะภาษาไทย (ดูหน้า 5)</p>
+</section>
 <h2>ARRA คืออะไร</h2>
 <p><b>ARRA</b> คือโปรแกรมความจำที่รันในเครื่องของคุณเอง ทำหน้าที่เหมือนสมุดจดที่ค้นหาได้ คุณจดความรู้ลงไป แล้วค้นกลับมาดูภายหลังได้ แม้ปิดเครื่องแล้วเปิดใหม่</p>
 <h2>Oracle คืออะไร</h2>
@@ -40,6 +51,7 @@
 <h2>คู่มือนี้ต่างจาก Oracle 101 อย่างไร</h2>
 <p>Oracle 101 บทที่ 3 ("ติดตั้งจาก 0") เริ่มโดยสมมติว่าเครื่องมี Git, GitHub CLI, Bun, tmux, ghq และ sqlite3 อยู่แล้ว คู่มือนี้คือ "บทที่ 0" สำหรับคนที่ยังไม่มีอะไรเลย พอจบหน้า 5 แล้วอยากไปต่อ ให้อ่าน Oracle 101 ต่อได้</p>
 
+<div class="chk-box"><h2>เช็กลิสต์หน้านี้</h2><label class="chk"><input type="checkbox" data-id="p1-demo"><span>ลองจดโน้ตหรือค้นคำในภาพจำลอง 3 มิติด้านบนแล้ว</span></label><p class="chk-note">ติ๊กเองตามที่ทำจริง เก็บไว้ในเบราว์เซอร์ของคุณเท่านั้น ไม่ได้ส่งไปที่ไหน</p></div>
 <div class="pager"><span></span><a href="terminal.html">เปิด terminal ครั้งแรก →</a></div>
 </main>
 <footer>
@@ -47,6 +59,8 @@
   <p>ต้องการเนื้อหาเชิงลึกต่อจากนี้: <a href="https://oracle101.vercel.app/">Oracle 101</a> (คู่มือภาษาไทยของ upstream) · ซอร์สของ ARRA: <a href="https://github.com/Soul-Brews-Studio/arra-oracle-v3">arra-oracle-v3</a></p>
   <p>สคริปต์ทดสอบซ้ำ: <a href="https://github.com/thebuilderofmoebius9/arra-assistance/blob/main/scripts/retest.sh">scripts/retest.sh</a></p>
 </footer>
+<script>window.ARRA_ITEMS = {"p1": ["p1-demo"], "p2": ["p2-open", "p2-echo"], "p3": ["p3-install", "p3-login"], "p4": ["p4-bun", "p4-server", "p4-health", "p4-doctor"], "p5": ["p5-learn", "p5-search"], "p6": ["p6-skills", "p6-restart", "p6-awaken"]};</script>
 <script src="copy.js"></script>
+<script src="interactive.js"></script>
 </body>
 </html>

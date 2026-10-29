@@ -31,3 +31,54 @@ code,kbd{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9em;backgr
 .pager{display:flex;justify-content:space-between;gap:12px;margin-top:2.5em;padding-top:1em;border-top:1px solid var(--line)}
 footer{max-width:760px;margin:0 auto;padding:0 20px 40px;color:var(--mut);font-size:.82em}
 footer p{margin:.4em 0}
+
+/* ---- ส่วนโต้ตอบ ---- */
+.tabs{display:none;gap:6px;margin:.8em 0 .4em}
+.js .tabs{display:flex}
+.os-tab{font:inherit;font-size:.85em;padding:5px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
+.os-tab[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
+.os-pane[hidden]{display:none}
+.os-label{font-weight:700;margin:.8em 0 .2em}
+.js .os-label{display:none}
+.prog{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:.8em;color:var(--mut)}
+.prog .bar{width:110px;height:6px;border-radius:999px;background:var(--line);overflow:hidden}
+.prog .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#6ee7b7,#8ea2ff);transition:width .4s}
+.nojs-hide{display:none}
+nav a.ok::after{content:" ✓";color:#2f9e6b;font-weight:700}
+.chk-box{margin:1.8em 0 0;padding:12px 16px;border:1px dashed var(--line);border-radius:10px}
+.chk-box h2{margin:0 0 .3em;font-size:1em}
+.chk{display:flex;gap:10px;align-items:flex-start;margin:.35em 0;cursor:pointer}
+.chk input{margin-top:.5em;width:18px;height:18px;accent-color:var(--acc)}
+.chk-note{margin:.4em 0 0;color:var(--mut);font-size:.78em}
+.done.reached{box-shadow:0 0 0 2px #6ee7b7 inset}
+.mem3d{margin:1.4em 0;padding:14px 16px 16px;border-radius:14px;background:#0c1020;color:#e8eaf0;border:1px solid #27304f}
+.mem3d h2{margin:0 0 .2em;font-size:1.1em;color:#fff}
+.mem3d p{margin:.3em 0;color:#aab3cc;font-size:.88em;line-height:1.6}
+.mem-stage{margin:.5em 0}
+.mem-canvas{display:block;width:100%;border-radius:10px;cursor:grab;background:radial-gradient(ellipse at center,#12183a 0,#0c1020 70%)}
+.mem-canvas:active{cursor:grabbing}
+.mem-add,.mem-find{display:flex;gap:8px;margin:.5em 0}
+.mem3d input[type=text],.mem3d input[type=search],.builder input,.builder select,.builder textarea,.term input{flex:1;min-width:0;font:inherit;font-size:.92em;padding:8px 12px;border-radius:8px;border:1px solid #3a4468;background:#10162e;color:#fff}
+.mem3d button,.term button,.builder-copy{font:inherit;font-size:.88em;padding:8px 16px;border-radius:8px;border:0;background:var(--acc);color:#fff;cursor:pointer}
+.mem-status{min-height:1.6em;color:#ffd166!important}
+.mem-note{font-size:.78em!important}
+.term{margin:1em 0;border-radius:12px;overflow:hidden;background:#0b0e14;border:1px solid #27304f;color:#e5e7eb;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9em}
+.term-bar{padding:6px 12px;background:#1a2033;color:#aab3cc;font-family:inherit;font-size:.8em}
+.term-log{height:190px;overflow-y:auto;padding:10px 12px;line-height:1.6}
+.term-log .cmd{color:#8ea2ff}.term-log .ok{color:#6ee7b7}.term-log .warn{color:#fbbf24}.term-log .dim{color:#7d87a3}
+.term-form{display:flex;gap:8px;align-items:center;padding:8px 12px;border-top:1px solid #27304f}
+.term-form span{color:#6ee7b7}
+.term-hints{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 10px}
+.term-hints button{background:#1f2a4d;font-family:inherit;padding:4px 10px;font-size:.8em}
+.sr{position:absolute;left:-9999px}
+.builder{margin:1em 0;padding:14px 16px;border-radius:12px;background:#0c1020;color:#e8eaf0;border:1px solid #27304f}
+.builder label{display:block;margin:.6em 0 .2em;font-size:.85em;color:#aab3cc}
+.builder textarea{width:100%;min-height:64px;resize:vertical}
+.builder .builder-out{min-height:190px;margin-top:.8em;font-size:.85em;line-height:1.6}
+.finish{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:20;max-width:92vw;padding:12px 18px;border-radius:12px;background:#0c1020;color:#fff;border:1px solid #6ee7b7;box-shadow:0 10px 30px rgba(0,0,0,.35);animation:rise .4s ease-out}
+.finish a{color:#ffd166}
+.confetti{position:fixed;top:-12px;width:8px;height:14px;z-index:19;border-radius:2px;animation:fall linear forwards;pointer-events:none}
+@keyframes fall{to{transform:translateY(105vh) rotate(540deg);opacity:.9}}
+@keyframes rise{from{opacity:0;transform:translate(-50%,12px)}}
+@media (max-width:520px){.prog{margin-left:0;width:100%}.prog .bar{flex:1}}
+@media (prefers-reduced-motion:reduce){.finish{animation:none}.prog .bar i{transition:none}}

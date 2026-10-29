@@ -6,13 +6,15 @@
 <title>เปิด terminal ครั้งแรก · ARRA Assistance</title>
 <meta name="description" content="คู่มือภาษาไทยสำหรับมือใหม่ที่ไม่เคยใช้ terminal: ติดตั้ง ARRA จดความรู้ ค้นกลับมาเจอ และปลุก Oracle ของตัวเอง">
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.className+=" js"</script>
 </head>
 <body>
 <header>
   <a class="brand" href="index.html">ARRA Assistance</a>
   <span class="sub">คู่มือเริ่มต้นสำหรับ Oracle School</span>
+  <div class="prog"><span id="progtxt"></span><div class="bar"><i id="progbar"></i></div></div>
 </header>
-<nav aria-label="ขั้นตอน"><a href="index.html"><b>1</b> ARRA กับ Oracle คืออะไร</a><a href="terminal.html" class="on"><b>2</b> เปิด terminal ครั้งแรก</a><a href="agent.html"><b>3</b> ติดตั้ง AI agent</a><a href="install-arra.html"><b>4</b> ติดตั้ง ARRA</a><a href="first-memory.html"><b>5</b> จดความรู้แรก แล้วค้นกลับมาเจอ</a><a href="awaken.html"><b>6</b> ปลุก Oracle ของตัวเอง</a><a href="stuck.html"><b>7</b> ติดแล้วทำอย่างไร</a></nav>
+<nav aria-label="ขั้นตอน"><a href="index.html" data-page="p1"><b>1</b> ARRA กับ Oracle คืออะไร</a><a href="terminal.html" data-page="p2" class="on"><b>2</b> เปิด terminal ครั้งแรก</a><a href="agent.html" data-page="p3"><b>3</b> ติดตั้ง AI agent</a><a href="install-arra.html" data-page="p4"><b>4</b> ติดตั้ง ARRA</a><a href="first-memory.html" data-page="p5"><b>5</b> จดความรู้แรก แล้วค้นกลับมาเจอ</a><a href="awaken.html" data-page="p6"><b>6</b> ปลุก Oracle ของตัวเอง</a><a href="stuck.html" data-page="p7"><b>7</b> ติดแล้วทำอย่างไร</a></nav>
 <main>
 <p class="step">ขั้นที่ 2 จาก 7</p>
 <h1>เปิด terminal ครั้งแรก</h1>
@@ -20,14 +22,19 @@
 <p class="badge warn">⚠️ ยังไม่ได้ทดสอบ · เขียนจากความรู้ทั่วไปของระบบปฏิบัติการ ผู้เขียนใช้ Linux จึงไม่ได้กดตามขั้นตอนนี้บน Windows/Mac</p>
 <p class="lead">terminal คือหน้าต่างที่เราพิมพ์คำสั่งให้คอมพิวเตอร์ทำงาน ไม่อันตราย ถ้าไม่ได้พิมพ์คำสั่งลบอะไร</p>
 <h2>เปิดอย่างไร</h2>
-<ul>
-<li><b>Mac:</b> กด <kbd>⌘</kbd> + <kbd>Space</kbd> พิมพ์ <code>Terminal</code> แล้วกด Enter</li>
-<li><b>Windows:</b> กดปุ่ม Windows พิมพ์ <code>PowerShell</code> แล้วกด Enter</li>
-</ul>
+<div class="tabs" role="group" aria-label="เลือกระบบของคุณ"><button type="button" class="os-tab" data-os="mac" aria-pressed="true">Mac</button><button type="button" class="os-tab" data-os="win" aria-pressed="false">Windows</button></div><div class="os-pane" data-os="mac"><p class="os-label">Mac</p><p>กด <kbd>⌘</kbd> + <kbd>Space</kbd> พิมพ์ <code>Terminal</code> แล้วกด Enter</p></div><div class="os-pane" data-os="win"><p class="os-label">Windows</p><p>กดปุ่ม Windows พิมพ์ <code>PowerShell</code> แล้วกด Enter</p></div>
 <h2>ลองคำสั่งแรก</h2>
 <p>ก๊อปบรรทัดนี้ วางลงในหน้าต่าง แล้วกด Enter</p>
 <div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>echo hello</code></pre></div>
 <p>ถ้าเห็นคำว่า <code>hello</code> ขึ้นมา แปลว่าใช้ terminal เป็นแล้ว</p>
+<h2>ลองก่อนในเครื่องจำลอง</h2>
+<p>ยังไม่กล้าพิมพ์ในเครื่องจริงใช่ไหม ลองที่นี่ก่อนได้ ไม่มีอะไรเสียหาย</p>
+<div class="term">
+<div class="term-bar">เครื่องจำลอง — ไม่ได้รันคำสั่งบนเครื่องของคุณ</div>
+<div class="term-log" role="log" aria-live="polite"></div>
+<form class="term-form" autocomplete="off"><label class="sr" for="termin">พิมพ์คำสั่ง</label><span>$</span><input id="termin" type="text" placeholder="ลองพิมพ์ echo hello แล้วกด Enter" autocapitalize="off" spellcheck="false"><button type="submit">รัน</button></form>
+<div class="term-hints"><button type="button" data-cmd="echo hello">echo hello</button><button type="button" data-cmd="help">help</button><button type="button" data-cmd="ls">ls</button><button type="button" data-cmd="sudo rm -rf /">sudo rm -rf /</button></div>
+</div>
 <h2>สิ่งที่ต้องรู้ 3 ข้อ</h2>
 <ol>
 <li>คำสั่งทุกบรรทัดในคู่มือ <b>ก๊อปทั้งบรรทัด</b> ไปวางแล้วกด Enter ไม่ต้องพิมพ์เอง (ปุ่ม "คัดลอก" มุมขวาบนของกล่องช่วยได้)</li>
@@ -36,6 +43,7 @@
 </ol>
 <div class="note"><b>Windows:</b> คู่มือนี้ยังไม่ได้ทดสอบบน PowerShell บางคำสั่งของ ARRA เขียนแบบ Mac/Linux ถ้าบรรทัดไหนใช้ไม่ได้ ให้ถาม AI ของคุณด้วยข้อความจากหน้าที่ 7 ว่า "แปลงเป็นคำสั่ง PowerShell ให้หน่อย"</div>
 
+<div class="chk-box"><h2>เช็กลิสต์หน้านี้</h2><label class="chk"><input type="checkbox" data-id="p2-open"><span>เปิด terminal บนเครื่องของฉันได้แล้ว</span></label><label class="chk"><input type="checkbox" data-id="p2-echo"><span>พิมพ์ echo hello แล้วเห็นคำว่า hello (ลองในเครื่องจำลองก็นับ)</span></label><p class="chk-note">ติ๊กเองตามที่ทำจริง เก็บไว้ในเบราว์เซอร์ของคุณเท่านั้น ไม่ได้ส่งไปที่ไหน</p></div>
 <div class="pager"><a href="index.html">← ARRA กับ Oracle คืออะไร</a><a href="agent.html">ติดตั้ง AI agent →</a></div>
 </main>
 <footer>
@@ -43,6 +51,8 @@
   <p>ต้องการเนื้อหาเชิงลึกต่อจากนี้: <a href="https://oracle101.vercel.app/">Oracle 101</a> (คู่มือภาษาไทยของ upstream) · ซอร์สของ ARRA: <a href="https://github.com/Soul-Brews-Studio/arra-oracle-v3">arra-oracle-v3</a></p>
   <p>สคริปต์ทดสอบซ้ำ: <a href="https://github.com/thebuilderofmoebius9/arra-assistance/blob/main/scripts/retest.sh">scripts/retest.sh</a></p>
 </footer>
+<script>window.ARRA_ITEMS = {"p1": ["p1-demo"], "p2": ["p2-open", "p2-echo"], "p3": ["p3-install", "p3-login"], "p4": ["p4-bun", "p4-server", "p4-health", "p4-doctor"], "p5": ["p5-learn", "p5-search"], "p6": ["p6-skills", "p6-restart", "p6-awaken"]};</script>
 <script src="copy.js"></script>
+<script src="interactive.js"></script>
 </body>
 </html>

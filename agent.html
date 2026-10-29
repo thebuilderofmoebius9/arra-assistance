@@ -6,13 +6,15 @@
 <title>ติดตั้ง AI agent · ARRA Assistance</title>
 <meta name="description" content="คู่มือภาษาไทยสำหรับมือใหม่ที่ไม่เคยใช้ terminal: ติดตั้ง ARRA จดความรู้ ค้นกลับมาเจอ และปลุก Oracle ของตัวเอง">
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.className+=" js"</script>
 </head>
 <body>
 <header>
   <a class="brand" href="index.html">ARRA Assistance</a>
   <span class="sub">คู่มือเริ่มต้นสำหรับ Oracle School</span>
+  <div class="prog"><span id="progtxt"></span><div class="bar"><i id="progbar"></i></div></div>
 </header>
-<nav aria-label="ขั้นตอน"><a href="index.html"><b>1</b> ARRA กับ Oracle คืออะไร</a><a href="terminal.html"><b>2</b> เปิด terminal ครั้งแรก</a><a href="agent.html" class="on"><b>3</b> ติดตั้ง AI agent</a><a href="install-arra.html"><b>4</b> ติดตั้ง ARRA</a><a href="first-memory.html"><b>5</b> จดความรู้แรก แล้วค้นกลับมาเจอ</a><a href="awaken.html"><b>6</b> ปลุก Oracle ของตัวเอง</a><a href="stuck.html"><b>7</b> ติดแล้วทำอย่างไร</a></nav>
+<nav aria-label="ขั้นตอน"><a href="index.html" data-page="p1"><b>1</b> ARRA กับ Oracle คืออะไร</a><a href="terminal.html" data-page="p2"><b>2</b> เปิด terminal ครั้งแรก</a><a href="agent.html" data-page="p3" class="on"><b>3</b> ติดตั้ง AI agent</a><a href="install-arra.html" data-page="p4"><b>4</b> ติดตั้ง ARRA</a><a href="first-memory.html" data-page="p5"><b>5</b> จดความรู้แรก แล้วค้นกลับมาเจอ</a><a href="awaken.html" data-page="p6"><b>6</b> ปลุก Oracle ของตัวเอง</a><a href="stuck.html" data-page="p7"><b>7</b> ติดแล้วทำอย่างไร</a></nav>
 <main>
 <p class="step">ขั้นที่ 3 จาก 7</p>
 <h1>ติดตั้ง AI agent</h1>
@@ -32,15 +34,13 @@
 <div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>npm install -g @openai/codex</code></pre></div>
 <p>เริ่มใช้: พิมพ์ <code>codex</code></p>
 <p><b>Antigravity CLI (คำสั่ง <code>agy</code>)</b> — ตัวที่ Google ใช้แทน Gemini CLI</p>
-<p>Mac / Linux:</p>
-<div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>curl -fsSL https://antigravity.google/cli/install.sh | bash</code></pre></div>
-<p>Windows (PowerShell):</p>
-<div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>irm https://antigravity.google/cli/install.ps1 | iex</code></pre></div>
+<div class="tabs" role="group" aria-label="เลือกระบบของคุณ"><button type="button" class="os-tab" data-os="mac" aria-pressed="true">Mac / Linux</button><button type="button" class="os-tab" data-os="win" aria-pressed="false">Windows (PowerShell)</button></div><div class="os-pane" data-os="mac"><p class="os-label">Mac / Linux</p><div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>curl -fsSL https://antigravity.google/cli/install.sh | bash</code></pre></div></div><div class="os-pane" data-os="win"><p class="os-label">Windows (PowerShell)</p><div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>irm https://antigravity.google/cli/install.ps1 | iex</code></pre></div></div>
 <p>เริ่มใช้: พิมพ์ <code>agy</code> ไม่ต้องติดตั้ง Node.js สำหรับตัวนี้</p>
 <div class="note"><b>Gemini CLI เดิมใช้ไม่ได้แล้วสำหรับบัญชีส่วนตัว</b> เนื้อหานี้มาจากบทความภายนอกหลายแห่งที่ผู้เขียนค้นเมื่อ 2026-10-29 (ระบุว่า Google ยุติให้บัญชีส่วนตัวใช้ Gemini CLI ตั้งแต่ 18 มิ.ย. 2026) ไม่ใช่จากประกาศของ Google โดยตรง และผู้เขียนยืนยันได้แค่ว่าเครื่องของผู้เขียนมี <code>agy</code> เวอร์ชัน 1.4.3 ใช้งานอยู่ ถ้าคุณมีบัญชี Google องค์กร ให้ตรวจสิทธิ์กับหน้าทางการของ Google</div>
 <p>ครั้งแรกแต่ละตัวจะให้ล็อกอิน ทำตามหน้าจอ เงื่อนไขและค่าใช้จ่ายของแต่ละเจ้าให้ดูจากหน้าทางการของเขา คู่มือนี้ไม่ได้ตรวจให้</p>
 <div class="note"><b>มีวิธีติดตั้งแบบอื่นด้วย</b> เช่น ตัวติดตั้งทางการของแต่ละเจ้า ถ้าคำสั่งข้างบนใช้ไม่ได้ ให้ค้นหน้าทางการของ agent ที่เลือก หรือใช้กล่องถาม AI ในหน้า 7</div>
 
+<div class="chk-box"><h2>เช็กลิสต์หน้านี้</h2><label class="chk"><input type="checkbox" data-id="p3-install"><span>ติดตั้ง agent อย่างน้อยหนึ่งตัวแล้ว</span></label><label class="chk"><input type="checkbox" data-id="p3-login"><span>ล็อกอิน agent แล้ว</span></label><p class="chk-note">ติ๊กเองตามที่ทำจริง เก็บไว้ในเบราว์เซอร์ของคุณเท่านั้น ไม่ได้ส่งไปที่ไหน</p></div>
 <div class="pager"><a href="terminal.html">← เปิด terminal ครั้งแรก</a><a href="install-arra.html">ติดตั้ง ARRA →</a></div>
 </main>
 <footer>
@@ -48,6 +48,8 @@
   <p>ต้องการเนื้อหาเชิงลึกต่อจากนี้: <a href="https://oracle101.vercel.app/">Oracle 101</a> (คู่มือภาษาไทยของ upstream) · ซอร์สของ ARRA: <a href="https://github.com/Soul-Brews-Studio/arra-oracle-v3">arra-oracle-v3</a></p>
   <p>สคริปต์ทดสอบซ้ำ: <a href="https://github.com/thebuilderofmoebius9/arra-assistance/blob/main/scripts/retest.sh">scripts/retest.sh</a></p>
 </footer>
+<script>window.ARRA_ITEMS = {"p1": ["p1-demo"], "p2": ["p2-open", "p2-echo"], "p3": ["p3-install", "p3-login"], "p4": ["p4-bun", "p4-server", "p4-health", "p4-doctor"], "p5": ["p5-learn", "p5-search"], "p6": ["p6-skills", "p6-restart", "p6-awaken"]};</script>
 <script src="copy.js"></script>
+<script src="interactive.js"></script>
 </body>
 </html>

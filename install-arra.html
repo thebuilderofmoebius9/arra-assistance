@@ -6,13 +6,15 @@
 <title>ติดตั้ง ARRA · ARRA Assistance</title>
 <meta name="description" content="คู่มือภาษาไทยสำหรับมือใหม่ที่ไม่เคยใช้ terminal: ติดตั้ง ARRA จดความรู้ ค้นกลับมาเจอ และปลุก Oracle ของตัวเอง">
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.className+=" js"</script>
 </head>
 <body>
 <header>
   <a class="brand" href="index.html">ARRA Assistance</a>
   <span class="sub">คู่มือเริ่มต้นสำหรับ Oracle School</span>
+  <div class="prog"><span id="progtxt"></span><div class="bar"><i id="progbar"></i></div></div>
 </header>
-<nav aria-label="ขั้นตอน"><a href="index.html"><b>1</b> ARRA กับ Oracle คืออะไร</a><a href="terminal.html"><b>2</b> เปิด terminal ครั้งแรก</a><a href="agent.html"><b>3</b> ติดตั้ง AI agent</a><a href="install-arra.html" class="on"><b>4</b> ติดตั้ง ARRA</a><a href="first-memory.html"><b>5</b> จดความรู้แรก แล้วค้นกลับมาเจอ</a><a href="awaken.html"><b>6</b> ปลุก Oracle ของตัวเอง</a><a href="stuck.html"><b>7</b> ติดแล้วทำอย่างไร</a></nav>
+<nav aria-label="ขั้นตอน"><a href="index.html" data-page="p1"><b>1</b> ARRA กับ Oracle คืออะไร</a><a href="terminal.html" data-page="p2"><b>2</b> เปิด terminal ครั้งแรก</a><a href="agent.html" data-page="p3"><b>3</b> ติดตั้ง AI agent</a><a href="install-arra.html" data-page="p4" class="on"><b>4</b> ติดตั้ง ARRA</a><a href="first-memory.html" data-page="p5"><b>5</b> จดความรู้แรก แล้วค้นกลับมาเจอ</a><a href="awaken.html" data-page="p6"><b>6</b> ปลุก Oracle ของตัวเอง</a><a href="stuck.html" data-page="p7"><b>7</b> ติดแล้วทำอย่างไร</a></nav>
 <main>
 <p class="step">ขั้นที่ 4 จาก 7</p>
 <h1>ติดตั้ง ARRA</h1>
@@ -21,10 +23,7 @@
 <p class="lead">หน้านี้ติดตั้ง ARRA และเช็กว่าทำงาน ต้องเปิด terminal 2 หน้าต่าง</p>
 <h2>ขั้นที่ 0: ติดตั้ง bun</h2>
 <p>bun เป็นตัวรันที่ ARRA ใช้ ผู้เขียนทดสอบกับ bun 1.3.14 ที่ติดตั้งไว้แล้ว ส่วนคำสั่งติดตั้ง bun ข้างล่างมาจากหน้า bun.sh และ<b>ยังไม่ได้ลองบนเครื่องสะอาด</b></p>
-<p><b>Mac / Linux</b></p>
-<div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>curl -fsSL https://bun.sh/install | bash</code></pre></div>
-<p><b>Windows (PowerShell)</b></p>
-<div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>powershell -c &quot;irm bun.sh/install.ps1 | iex&quot;</code></pre></div>
+<div class="tabs" role="group" aria-label="เลือกระบบของคุณ"><button type="button" class="os-tab" data-os="mac" aria-pressed="true">Mac / Linux</button><button type="button" class="os-tab" data-os="win" aria-pressed="false">Windows (PowerShell)</button></div><div class="os-pane" data-os="mac"><p class="os-label">Mac / Linux</p><div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>curl -fsSL https://bun.sh/install | bash</code></pre></div></div><div class="os-pane" data-os="win"><p class="os-label">Windows (PowerShell)</p><div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>powershell -c &quot;irm bun.sh/install.ps1 | iex&quot;</code></pre></div></div>
 <p>ปิด terminal แล้วเปิดใหม่ จากนั้นเช็ก:</p>
 <div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>bun --version</code></pre></div>
 <h2>ขั้นที่ 1: เปิดเซิร์ฟเวอร์ ARRA (หน้าต่างที่ 1)</h2>
@@ -50,6 +49,7 @@ PASS MCP launchable</code></pre></div>
 <p><b>ผ่านเกณฑ์</b> คือไม่มีบรรทัดขึ้นต้นด้วย <code>FAIL</code> บรรทัด <code>WARN</code> เรื่อง vector/embedder เป็นเรื่องปกติ</p>
 <div class="note">ข้อมูลของคุณเก็บที่ไหน: ตามเอกสารของ ARRA ค่าเริ่มต้นคือโฟลเดอร์ <code>~/.oracle</code> ผู้เขียนทดสอบโดยกำหนดโฟลเดอร์ชั่วคราวแยกต่างหาก จึงยังไม่ได้ยืนยันค่าเริ่มต้นนี้</div>
 
+<div class="chk-box"><h2>เช็กลิสต์หน้านี้</h2><label class="chk"><input type="checkbox" data-id="p4-bun"><span>bun --version ขึ้นตัวเลขเวอร์ชัน</span></label><label class="chk"><input type="checkbox" data-id="p4-server"><span>เปิดเซิร์ฟเวอร์ ARRA ค้างไว้แล้ว</span></label><label class="chk"><input type="checkbox" data-id="p4-health"><span>เบราว์เซอร์เห็น &quot;oracle&quot;:&quot;connected&quot;</span></label><label class="chk"><input type="checkbox" data-id="p4-doctor"><span>doctor ไม่มีบรรทัดที่ขึ้นต้นด้วย FAIL</span></label><p class="chk-note">ติ๊กเองตามที่ทำจริง เก็บไว้ในเบราว์เซอร์ของคุณเท่านั้น ไม่ได้ส่งไปที่ไหน</p></div>
 <div class="pager"><a href="agent.html">← ติดตั้ง AI agent</a><a href="first-memory.html">จดความรู้แรก แล้วค้นกลับมาเจอ →</a></div>
 </main>
 <footer>
@@ -57,6 +57,8 @@ PASS MCP launchable</code></pre></div>
   <p>ต้องการเนื้อหาเชิงลึกต่อจากนี้: <a href="https://oracle101.vercel.app/">Oracle 101</a> (คู่มือภาษาไทยของ upstream) · ซอร์สของ ARRA: <a href="https://github.com/Soul-Brews-Studio/arra-oracle-v3">arra-oracle-v3</a></p>
   <p>สคริปต์ทดสอบซ้ำ: <a href="https://github.com/thebuilderofmoebius9/arra-assistance/blob/main/scripts/retest.sh">scripts/retest.sh</a></p>
 </footer>
+<script>window.ARRA_ITEMS = {"p1": ["p1-demo"], "p2": ["p2-open", "p2-echo"], "p3": ["p3-install", "p3-login"], "p4": ["p4-bun", "p4-server", "p4-health", "p4-doctor"], "p5": ["p5-learn", "p5-search"], "p6": ["p6-skills", "p6-restart", "p6-awaken"]};</script>
 <script src="copy.js"></script>
+<script src="interactive.js"></script>
 </body>
 </html>

@@ -17,10 +17,10 @@
 <p class="step">ขั้นที่ 3 จาก 7</p>
 <h1>ติดตั้ง AI agent</h1>
 
-<p class="badge warn">⚠️ ยังไม่ได้ทดสอบ · ผู้เขียนตรวจชื่อแพ็กเกจจาก npm เมื่อ 2026-10-29 (claude-code 2.1.312, codex 0.165.0, gemini-cli 0.66.0) แต่ยังไม่ได้ติดตั้งบนเครื่องสะอาด</p>
+<p class="badge warn">⚠️ ยังไม่ได้ทดสอบ · ผู้เขียนตรวจชื่อแพ็กเกจ npm ของ Claude Code (2.1.312) และ Codex (0.165.0) และตรวจว่า URL ติดตั้ง agy ของ Google ตอบ HTTP 200 เมื่อ 2026-10-29 แต่ยังไม่ได้ติดตั้งตัวใดบนเครื่องสะอาด</p>
 <p class="lead">AI agent คือ AI ที่ทำงานใน terminal ได้ อ่านไฟล์ พิมพ์คำสั่ง และใช้ skills ของ Oracle ได้ ซึ่งแชตผ่านเว็บทำไม่ได้</p>
 <h2>เลือกตัวไหนก็ได้</h2>
-<p>คู่มือนี้ไม่บังคับ ใช้ตัวที่คุณมีบัญชีอยู่แล้ว ส่วน skills ของ Oracle รองรับทั้งสามตัวนี้ (ทดสอบการติดตั้งไฟล์แล้ว ดูหน้า 6)</p>
+<p>คู่มือนี้ไม่บังคับ ใช้ตัวที่คุณมีบัญชีอยู่แล้ว ส่วน skills ของ Oracle รองรับทั้งสามตัวนี้ (ทดสอบการติดตั้งไฟล์แล้ว ดูหน้า 6) ตัวที่ใช้ Node.js ติดตั้งคือ Claude Code และ Codex ส่วน Antigravity ไม่ต้องใช้ Node.js</p>
 <h3>ขั้นที่ 1: ติดตั้ง Node.js</h3>
 <p>ดาวน์โหลดจาก <a href="https://nodejs.org">nodejs.org</a> เลือกรุ่น LTS แล้วเปิด terminal ใหม่ จากนั้นเช็ก:</p>
 <div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>node --version</code></pre></div>
@@ -31,11 +31,15 @@
 <p><b>Codex CLI</b></p>
 <div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>npm install -g @openai/codex</code></pre></div>
 <p>เริ่มใช้: พิมพ์ <code>codex</code></p>
-<p><b>Gemini CLI</b></p>
-<div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>npm install -g @google/gemini-cli</code></pre></div>
-<p>เริ่มใช้: พิมพ์ <code>gemini</code></p>
+<p><b>Antigravity CLI (คำสั่ง <code>agy</code>)</b> — ตัวที่ Google ใช้แทน Gemini CLI</p>
+<p>Mac / Linux:</p>
+<div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>curl -fsSL https://antigravity.google/cli/install.sh | bash</code></pre></div>
+<p>Windows (PowerShell):</p>
+<div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>irm https://antigravity.google/cli/install.ps1 | iex</code></pre></div>
+<p>เริ่มใช้: พิมพ์ <code>agy</code> ไม่ต้องติดตั้ง Node.js สำหรับตัวนี้</p>
+<div class="note"><b>Gemini CLI เดิมใช้ไม่ได้แล้วสำหรับบัญชีส่วนตัว</b> เนื้อหานี้มาจากบทความภายนอกหลายแห่งที่ผู้เขียนค้นเมื่อ 2026-10-29 (ระบุว่า Google ยุติให้บัญชีส่วนตัวใช้ Gemini CLI ตั้งแต่ 18 มิ.ย. 2026) ไม่ใช่จากประกาศของ Google โดยตรง และผู้เขียนยืนยันได้แค่ว่าเครื่องของผู้เขียนมี <code>agy</code> เวอร์ชัน 1.4.3 ใช้งานอยู่ ถ้าคุณมีบัญชี Google องค์กร ให้ตรวจสิทธิ์กับหน้าทางการของ Google</div>
 <p>ครั้งแรกแต่ละตัวจะให้ล็อกอิน ทำตามหน้าจอ เงื่อนไขและค่าใช้จ่ายของแต่ละเจ้าให้ดูจากหน้าทางการของเขา คู่มือนี้ไม่ได้ตรวจให้</p>
-<div class="note"><b>มีวิธีติดตั้งแบบอื่นด้วย</b> เช่น ตัวติดตั้งทางการของแต่ละเจ้า ถ้าคำสั่ง <code>npm</code> ข้างบนใช้ไม่ได้ ให้ค้นหน้าทางการของ agent ที่เลือก หรือใช้กล่องถาม AI ในหน้า 7</div>
+<div class="note"><b>มีวิธีติดตั้งแบบอื่นด้วย</b> เช่น ตัวติดตั้งทางการของแต่ละเจ้า ถ้าคำสั่งข้างบนใช้ไม่ได้ ให้ค้นหน้าทางการของ agent ที่เลือก หรือใช้กล่องถาม AI ในหน้า 7</div>
 
 <div class="pager"><a href="terminal.html">← เปิด terminal ครั้งแรก</a><a href="install-arra.html">ติดตั้ง ARRA →</a></div>
 </main>

@@ -25,12 +25,12 @@
 <div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>bunx --bun github:Soul-Brews-Studio/arra-oracle-skills-cli#alpha install -g -y -p standard --agent claude-code</code></pre></div>
 <p><b>Codex CLI</b></p>
 <div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>bunx --bun github:Soul-Brews-Studio/arra-oracle-skills-cli#alpha install -g -y -p standard --agent codex</code></pre></div>
-<p><b>Gemini CLI</b></p>
-<div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>bunx --bun github:Soul-Brews-Studio/arra-oracle-skills-cli#alpha install -g -y -p standard --agent gemini</code></pre></div>
-<div class="note"><b>ระวังชื่อ Gemini:</b> README ของ skills เขียน <code>--agent gemini-cli</code> แต่ตอนทดสอบ ตัวติดตั้งตอบว่า <code>Unknown agents: gemini-cli</code> และรับชื่อ <code>gemini</code> แทน จึงใช้ชื่อนี้ในคู่มือ</div>
-<p>ผลที่ทดสอบ: ทั้งสามตัวติดตั้งแล้วมีโฟลเดอร์ <code>awaken</code> ใต้โฟลเดอร์ skills ของแต่ละ agent (Claude Code: <code>~/.claude/skills</code>, Codex: <code>~/.codex/skills</code> และ <code>~/.codex/prompts</code>, Gemini: <code>~/.gemini/skills</code> และ <code>~/.gemini/commands</code>)</p>
+<p><b>Antigravity CLI (agy)</b></p>
+<div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>bunx --bun github:Soul-Brews-Studio/arra-oracle-skills-cli#alpha install -g -y -p standard --agent antigravity</code></pre></div>
+<div class="note"><b>ระวังชื่อ agent:</b> ชื่อที่ใช้หลัง <code>--agent</code> คือ <code>antigravity</code> (ไม่ใช่ <code>agy</code>) ส่วน README ของ skills ยังเขียน <code>gemini-cli</code> ซึ่งตอนทดสอบ ตัวติดตั้งตอบว่า <code>Unknown agents: gemini-cli</code> ถ้าคุณยังใช้ Gemini CLI เดิมอยู่ ให้ใช้ <code>--agent gemini</code></div>
+<p>ผลที่ทดสอบ: Claude Code, Codex และ Antigravity ติดตั้งแล้วมีโฟลเดอร์ <code>awaken</code> ใต้โฟลเดอร์ skills ของแต่ละ agent (Claude Code: <code>~/.claude/skills</code>, Codex: <code>~/.codex/skills</code> และ <code>~/.codex/prompts</code>, Antigravity: <code>~/.gemini/antigravity/skills</code>) ผู้เขียนยังไม่ได้ตรวจว่า <code>agy</code> อ่านโฟลเดอร์นี้จริงหรือไม่ เพราะแหล่งข้อมูลภายนอกบางแห่งบอกว่า skills ของโปรเจกต์ย้ายไปที่ <code>.agents/skills/</code></p>
 <h2>ขั้นที่ 2: ปิดแล้วเปิด agent ใหม่</h2>
-<p>ตัวติดตั้งแจ้งว่า "Restart your agent to activate skills" ให้ปิด agent แล้วเปิดใหม่ (พิมพ์ <code>claude</code>, <code>codex</code> หรือ <code>gemini</code>)</p>
+<p>ตัวติดตั้งแจ้งว่า "Restart your agent to activate skills" ให้ปิด agent แล้วเปิดใหม่ (พิมพ์ <code>claude</code>, <code>codex</code> หรือ <code>agy</code>)</p>
 <h2>ขั้นที่ 3: เรียก awaken</h2>
 <p>ใน agent พิมพ์ <code>/awaken</code> คำอธิบายของ skill ระบุว่าแบบเต็มใช้เวลาราว 20 นาที และมีแบบเร็ว <code>--fast</code> ราว 5 นาที ผู้เขียนยังไม่ได้ลองรันจริง จึงไม่รู้ว่าแต่ละ agent เรียกด้วยพิมพ์แบบเดียวกันหรือไม่ ถ้าไม่ขึ้น ให้ถาม AI ด้วยข้อความจากหน้า 7</p>
 <h2>ทางเลือกสำหรับ Claude Code</h2>

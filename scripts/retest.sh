@@ -30,7 +30,7 @@ step "learn เขียนบันทึกได้" "$ARRA arra-cli learn 'M
 step "search อ่านกลับเจอ" "$ARRA arra-cli search sofa --limit 3 | grep -q 'Found 1 results'"
 step "doctor ไม่มี FAIL" "! $ARRA arra-cli doctor | grep -q '^FAIL'"
 
-for ag in claude-code codex gemini; do
+for ag in claude-code codex antigravity; do
   mkdir -p "$W/home-agent/$ag"
   step "ติดตั้ง skills ให้ $ag แล้วมี awaken" "HOME='$W/home-agent/$ag' bunx --bun github:Soul-Brews-Studio/arra-oracle-skills-cli#alpha install -g -y -p standard --agent $ag && find '$W/home-agent/$ag' -maxdepth 5 -name 'awaken*' | grep -q ."
 done

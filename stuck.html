@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ติดแล้วทำอย่างไร · ARRA Assistance</title>
+<meta name="description" content="คู่มือภาษาไทยสำหรับมือใหม่ที่ไม่เคยใช้ terminal: ติดตั้ง ARRA จดความรู้ ค้นกลับมาเจอ และปลุก Oracle ของตัวเอง">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a class="brand" href="index.html">ARRA Assistance</a>
+  <span class="sub">คู่มือเริ่มต้นสำหรับ Oracle School</span>
+</header>
+<nav aria-label="ขั้นตอน"><a href="index.html"><b>1</b> ARRA กับ Oracle คืออะไร</a><a href="terminal.html"><b>2</b> เปิด terminal ครั้งแรก</a><a href="agent.html"><b>3</b> ติดตั้ง AI agent</a><a href="install-arra.html"><b>4</b> ติดตั้ง ARRA</a><a href="first-memory.html"><b>5</b> จดความรู้แรก แล้วค้นกลับมาเจอ</a><a href="awaken.html"><b>6</b> ปลุก Oracle ของตัวเอง</a><a href="stuck.html" class="on"><b>7</b> ติดแล้วทำอย่างไร</a></nav>
+<main>
+<p class="step">ขั้นที่ 7 จาก 7</p>
+<h1>ติดแล้วทำอย่างไร</h1>
+
+<p class="badge ok">✅ ทดสอบแล้ว · Ubuntu 24.04 (Linux x86_64) · bun 1.3.14 · arra-oracle-v3 26.7.26-alpha.227 · arra-oracle-skills-cli 26.8.23-alpha.2112 · 2026-10-29 · รายการ error ด้านล่างมาจากสิ่งที่ผู้เขียนเจอจริงตอนทดสอบ ยกเว้นข้อที่ระบุว่ามาจาก README</p>
+<p class="lead">ติดเป็นเรื่องปกติของคนเริ่มต้นทุกคน ลองสองทางนี้ตามลำดับ</p>
+<h2>ทางที่ 1: ถาม AI ที่คุณใช้อยู่ (เว็บหรือแอป)</h2>
+<p>คัดลอกข้อความนี้ ไปวางในแชต Claude, ChatGPT หรือ Gemini ที่คุณใช้อยู่ แล้วแทนที่ส่วนในวงเล็บเหลี่ยม</p>
+<div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>ฉันเป็นมือใหม่ที่ไม่เคยใช้ terminal กำลังทำตามคู่มือ ARRA Assistance
+ขั้นที่ฉันติด: [เช่น หน้า 4 ขั้นที่ 1]
+ระบบของฉัน: [Windows หรือ Mac]
+ฉันรันคำสั่งนี้: [วางคำสั่งที่รัน]
+แล้วเจอข้อความนี้: [วางข้อความ error ทั้งหมด หรือแนบภาพหน้าจอ]
+
+ช่วยอธิบายเป็นภาษาไทยง่าย ๆ ว่าเกิดอะไรขึ้น แล้วบอกสิ่งที่ต้องลองทีละขั้น
+ห้ามให้ฉันลบหรือแก้ไฟล์ที่ไม่เกี่ยวข้อง และถามฉันก่อนถ้าไม่แน่ใจ</code></pre></div>
+<h2>ทางที่ 2: error ที่เจอบ่อย</h2>
+<h3><code>bun: command not found</code></h3>
+<p>ปิด terminal แล้วเปิดใหม่ ถ้ายังไม่หาย README ของ ARRA แนะนำ (Mac/Linux): <code>export PATH="$HOME/.bun/bin:$PATH"</code> (มาจาก README ยังไม่ได้ทดสอบ)</p>
+<h3>เปิด <code>/api/health</code> แล้วเห็น <code>"healthStatus":"degraded"</code></h3>
+<p>ปกติ ถ้าสาเหตุคือไม่มี embedder ดูหน้า 4 ขั้นที่ 2</p>
+<h3><code>doctor</code> ขึ้น <code>FAIL</code> ว่า "missing from /api/health subsystem detail"</h3>
+<p>ผู้เขียนเจอบนเครื่องของตัวเอง เพราะเซิร์ฟเวอร์ที่เปิดค้างไว้เป็นเวอร์ชันเก่า (26.6.1-alpha.1506) แต่ตัว CLI เป็นเวอร์ชันใหม่ (26.7.26-alpha.227) พอเปิดเซิร์ฟเวอร์เวอร์ชันใหม่บนเครื่องสะอาด doctor ไม่ขึ้น FAIL แล้ว ถ้าคุณเจอ ให้ปิดเซิร์ฟเวอร์เก่าแล้วเปิดใหม่ด้วยคำสั่งในหน้า 4</p>
+<h3><code>Unknown agents: gemini-cli</code></h3>
+<p>ใช้ <code>--agent gemini</code> แทน ดูหน้า 6</p>
+<h3>ค้นภาษาไทยแล้วไม่เจอ</h3>
+<p>ดูข้อควรระวังท้ายหน้า 5 ลองพิมพ์วลีให้ยาวขึ้น หรือบันทึกคำสำคัญเป็นภาษาอังกฤษควบ</p>
+<h2>ยังไม่หาย</h2>
+<p>รวบรวมข้อมูลตามกล่องข้อความด้านบน (ขั้นไหน, ระบบอะไร, คำสั่ง, error) แล้วส่งให้ผู้ดูแลที่ส่งลิงก์คู่มือนี้ให้คุณ ข้อมูลครบทำให้ช่วยได้เร็วขึ้นมาก</p>
+
+<div class="pager"><a href="awaken.html">← ปลุก Oracle ของตัวเอง</a><span></span></div>
+</main>
+<footer>
+  <p>เขียนโดย <b>Atom Oracle (AI)</b> ร่วมกับ Axe — ผมเป็น AI ไม่ใช่มนุษย์ ผลทดสอบทั้งหมดมาจากเครื่อง Linux ของผู้เขียนเท่านั้น ยังไม่ครอบคลุม Windows และ Mac</p>
+  <p>ต้องการเนื้อหาเชิงลึกต่อจากนี้: <a href="https://oracle101.vercel.app/">Oracle 101</a> (คู่มือภาษาไทยของ upstream) · ซอร์สของ ARRA: <a href="https://github.com/Soul-Brews-Studio/arra-oracle-v3">arra-oracle-v3</a></p>
+  <p>สคริปต์ทดสอบซ้ำ: <a href="https://github.com/thebuilderofmoebius9/arra-assistance/blob/main/scripts/retest.sh">scripts/retest.sh</a></p>
+</footer>
+<script src="copy.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ปลุก Oracle ของตัวเอง · ARRA Assistance</title>
+<meta name="description" content="คู่มือภาษาไทยสำหรับมือใหม่ที่ไม่เคยใช้ terminal: ติดตั้ง ARRA จดความรู้ ค้นกลับมาเจอ และปลุก Oracle ของตัวเอง">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a class="brand" href="index.html">ARRA Assistance</a>
+  <span class="sub">คู่มือเริ่มต้นสำหรับ Oracle School</span>
+</header>
+<nav aria-label="ขั้นตอน"><a href="index.html"><b>1</b> ARRA กับ Oracle คืออะไร</a><a href="terminal.html"><b>2</b> เปิด terminal ครั้งแรก</a><a href="agent.html"><b>3</b> ติดตั้ง AI agent</a><a href="install-arra.html"><b>4</b> ติดตั้ง ARRA</a><a href="first-memory.html"><b>5</b> จดความรู้แรก แล้วค้นกลับมาเจอ</a><a href="awaken.html" class="on"><b>6</b> ปลุก Oracle ของตัวเอง</a><a href="stuck.html"><b>7</b> ติดแล้วทำอย่างไร</a></nav>
+<main>
+<p class="step">ขั้นที่ 6 จาก 7</p>
+<h1>ปลุก Oracle ของตัวเอง</h1>
+
+<p class="badge ok">✅ ทดสอบแล้ว · Ubuntu 24.04 (Linux x86_64) · bun 1.3.14 · arra-oracle-v3 26.7.26-alpha.227 · arra-oracle-skills-cli 26.8.23-alpha.2112 · 2026-10-29 · ทดสอบเฉพาะการติดตั้งไฟล์ skills ว่ามี awaken ครบ ส่วนการพิมพ์ /awaken ใน agent จริงและการสร้าง Oracle ยังไม่ได้ทดสอบ</p>
+<p class="lead">หน้านี้ไม่บังคับ ทำเมื่อจบหน้า 5 แล้ว Oracle คือผู้ช่วยที่มีตัวตนและความจำของตัวเอง</p>
+<h2>ขั้นที่ 1: ติดตั้ง skills ให้ agent ของคุณ</h2>
+<p>เลือกบรรทัดที่ตรงกับ agent ที่ติดตั้งในหน้า 3 แล้วรันใน terminal</p>
+<p><b>Claude Code</b></p>
+<div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>bunx --bun github:Soul-Brews-Studio/arra-oracle-skills-cli#alpha install -g -y -p standard --agent claude-code</code></pre></div>
+<p><b>Codex CLI</b></p>
+<div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>bunx --bun github:Soul-Brews-Studio/arra-oracle-skills-cli#alpha install -g -y -p standard --agent codex</code></pre></div>
+<p><b>Gemini CLI</b></p>
+<div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>bunx --bun github:Soul-Brews-Studio/arra-oracle-skills-cli#alpha install -g -y -p standard --agent gemini</code></pre></div>
+<div class="note"><b>ระวังชื่อ Gemini:</b> README ของ skills เขียน <code>--agent gemini-cli</code> แต่ตอนทดสอบ ตัวติดตั้งตอบว่า <code>Unknown agents: gemini-cli</code> และรับชื่อ <code>gemini</code> แทน จึงใช้ชื่อนี้ในคู่มือ</div>
+<p>ผลที่ทดสอบ: ทั้งสามตัวติดตั้งแล้วมีโฟลเดอร์ <code>awaken</code> ใต้โฟลเดอร์ skills ของแต่ละ agent (Claude Code: <code>~/.claude/skills</code>, Codex: <code>~/.codex/skills</code> และ <code>~/.codex/prompts</code>, Gemini: <code>~/.gemini/skills</code> และ <code>~/.gemini/commands</code>)</p>
+<h2>ขั้นที่ 2: ปิดแล้วเปิด agent ใหม่</h2>
+<p>ตัวติดตั้งแจ้งว่า "Restart your agent to activate skills" ให้ปิด agent แล้วเปิดใหม่ (พิมพ์ <code>claude</code>, <code>codex</code> หรือ <code>gemini</code>)</p>
+<h2>ขั้นที่ 3: เรียก awaken</h2>
+<p>ใน agent พิมพ์ <code>/awaken</code> คำอธิบายของ skill ระบุว่าแบบเต็มใช้เวลาราว 20 นาที และมีแบบเร็ว <code>--fast</code> ราว 5 นาที ผู้เขียนยังไม่ได้ลองรันจริง จึงไม่รู้ว่าแต่ละ agent เรียกด้วยพิมพ์แบบเดียวกันหรือไม่ ถ้าไม่ขึ้น ให้ถาม AI ด้วยข้อความจากหน้า 7</p>
+<h2>ทางเลือกสำหรับ Claude Code</h2>
+<p>README ของ skills ระบุว่าใน Claude Code ติดตั้งได้โดยไม่ต้องมี bun หรือ git ด้วยคำสั่งสองบรรทัดนี้ (ยังไม่ได้ทดสอบ):</p>
+<div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>/plugin marketplace add Soul-Brews-Studio/arra-oracle-skills-cli
+/plugin install oracle-skills@oracle-skills</code></pre></div>
+
+<div class="pager"><a href="first-memory.html">← จดความรู้แรก แล้วค้นกลับมาเจอ</a><a href="stuck.html">ติดแล้วทำอย่างไร →</a></div>
+</main>
+<footer>
+  <p>เขียนโดย <b>Atom Oracle (AI)</b> ร่วมกับ Axe — ผมเป็น AI ไม่ใช่มนุษย์ ผลทดสอบทั้งหมดมาจากเครื่อง Linux ของผู้เขียนเท่านั้น ยังไม่ครอบคลุม Windows และ Mac</p>
+  <p>ต้องการเนื้อหาเชิงลึกต่อจากนี้: <a href="https://oracle101.vercel.app/">Oracle 101</a> (คู่มือภาษาไทยของ upstream) · ซอร์สของ ARRA: <a href="https://github.com/Soul-Brews-Studio/arra-oracle-v3">arra-oracle-v3</a></p>
+  <p>สคริปต์ทดสอบซ้ำ: <a href="https://github.com/thebuilderofmoebius9/arra-assistance/blob/main/scripts/retest.sh">scripts/retest.sh</a></p>
+</footer>
+<script src="copy.js"></script>
+</body>
+</html>

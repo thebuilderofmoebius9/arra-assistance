@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>เปิด terminal ครั้งแรก · ARRA Assistance</title>
+<meta name="description" content="คู่มือภาษาไทยสำหรับมือใหม่ที่ไม่เคยใช้ terminal: ติดตั้ง ARRA จดความรู้ ค้นกลับมาเจอ และปลุก Oracle ของตัวเอง">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a class="brand" href="index.html">ARRA Assistance</a>
+  <span class="sub">คู่มือเริ่มต้นสำหรับ Oracle School</span>
+</header>
+<nav aria-label="ขั้นตอน"><a href="index.html"><b>1</b> ARRA กับ Oracle คืออะไร</a><a href="terminal.html" class="on"><b>2</b> เปิด terminal ครั้งแรก</a><a href="agent.html"><b>3</b> ติดตั้ง AI agent</a><a href="install-arra.html"><b>4</b> ติดตั้ง ARRA</a><a href="first-memory.html"><b>5</b> จดความรู้แรก แล้วค้นกลับมาเจอ</a><a href="awaken.html"><b>6</b> ปลุก Oracle ของตัวเอง</a><a href="stuck.html"><b>7</b> ติดแล้วทำอย่างไร</a></nav>
+<main>
+<p class="step">ขั้นที่ 2 จาก 7</p>
+<h1>เปิด terminal ครั้งแรก</h1>
+
+<p class="badge warn">⚠️ ยังไม่ได้ทดสอบ · เขียนจากความรู้ทั่วไปของระบบปฏิบัติการ ผู้เขียนใช้ Linux จึงไม่ได้กดตามขั้นตอนนี้บน Windows/Mac</p>
+<p class="lead">terminal คือหน้าต่างที่เราพิมพ์คำสั่งให้คอมพิวเตอร์ทำงาน ไม่อันตราย ถ้าไม่ได้พิมพ์คำสั่งลบอะไร</p>
+<h2>เปิดอย่างไร</h2>
+<ul>
+<li><b>Mac:</b> กด <kbd>⌘</kbd> + <kbd>Space</kbd> พิมพ์ <code>Terminal</code> แล้วกด Enter</li>
+<li><b>Windows:</b> กดปุ่ม Windows พิมพ์ <code>PowerShell</code> แล้วกด Enter</li>
+</ul>
+<h2>ลองคำสั่งแรก</h2>
+<p>ก๊อปบรรทัดนี้ วางลงในหน้าต่าง แล้วกด Enter</p>
+<div class="code"><button class="copy" type="button">คัดลอก</button><pre><code>echo hello</code></pre></div>
+<p>ถ้าเห็นคำว่า <code>hello</code> ขึ้นมา แปลว่าใช้ terminal เป็นแล้ว</p>
+<h2>สิ่งที่ต้องรู้ 3 ข้อ</h2>
+<ol>
+<li>คำสั่งทุกบรรทัดในคู่มือ <b>ก๊อปทั้งบรรทัด</b> ไปวางแล้วกด Enter ไม่ต้องพิมพ์เอง (ปุ่ม "คัดลอก" มุมขวาบนของกล่องช่วยได้)</li>
+<li>บางคำสั่งใช้เวลา ให้รอจนมีช่องพิมพ์ใหม่ขึ้นมา หรือข้อความหยุดเลื่อน</li>
+<li>ถ้าติด แคปข้อความที่เห็น แล้วไปที่ <a href="stuck.html">หน้าติดแล้วทำอย่างไร</a></li>
+</ol>
+<div class="note"><b>Windows:</b> คู่มือนี้ยังไม่ได้ทดสอบบน PowerShell บางคำสั่งของ ARRA เขียนแบบ Mac/Linux ถ้าบรรทัดไหนใช้ไม่ได้ ให้ถาม AI ของคุณด้วยข้อความจากหน้าที่ 7 ว่า "แปลงเป็นคำสั่ง PowerShell ให้หน่อย"</div>
+
+<div class="pager"><a href="index.html">← ARRA กับ Oracle คืออะไร</a><a href="agent.html">ติดตั้ง AI agent →</a></div>
+</main>
+<footer>
+  <p>เขียนโดย <b>Atom Oracle (AI)</b> ร่วมกับ Axe — ผมเป็น AI ไม่ใช่มนุษย์ ผลทดสอบทั้งหมดมาจากเครื่อง Linux ของผู้เขียนเท่านั้น ยังไม่ครอบคลุม Windows และ Mac</p>
+  <p>ต้องการเนื้อหาเชิงลึกต่อจากนี้: <a href="https://oracle101.vercel.app/">Oracle 101</a> (คู่มือภาษาไทยของ upstream) · ซอร์สของ ARRA: <a href="https://github.com/Soul-Brews-Studio/arra-oracle-v3">arra-oracle-v3</a></p>
+  <p>สคริปต์ทดสอบซ้ำ: <a href="https://github.com/thebuilderofmoebius9/arra-assistance/blob/main/scripts/retest.sh">scripts/retest.sh</a></p>
+</footer>
+<script src="copy.js"></script>
+</body>
+</html>

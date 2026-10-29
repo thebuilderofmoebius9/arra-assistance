@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARRA กับ Oracle คืออะไร · ARRA Assistance</title>
+<meta name="description" content="คู่มือภาษาไทยสำหรับมือใหม่ที่ไม่เคยใช้ terminal: ติดตั้ง ARRA จดความรู้ ค้นกลับมาเจอ และปลุก Oracle ของตัวเอง">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a class="brand" href="index.html">ARRA Assistance</a>
+  <span class="sub">คู่มือเริ่มต้นสำหรับ Oracle School</span>
+</header>
+<nav aria-label="ขั้นตอน"><a href="index.html" class="on"><b>1</b> ARRA กับ Oracle คืออะไร</a><a href="terminal.html"><b>2</b> เปิด terminal ครั้งแรก</a><a href="agent.html"><b>3</b> ติดตั้ง AI agent</a><a href="install-arra.html"><b>4</b> ติดตั้ง ARRA</a><a href="first-memory.html"><b>5</b> จดความรู้แรก แล้วค้นกลับมาเจอ</a><a href="awaken.html"><b>6</b> ปลุก Oracle ของตัวเอง</a><a href="stuck.html"><b>7</b> ติดแล้วทำอย่างไร</a></nav>
+<main>
+<p class="step">ขั้นที่ 1 จาก 7</p>
+<h1>ARRA กับ Oracle คืออะไร</h1>
+
+<p class="lead">หน้านี้เล่าภาพรวมสั้น ๆ ก่อนลงมือ อ่านจบใน 2 นาที</p>
+<h2>ARRA คืออะไร</h2>
+<p><b>ARRA</b> คือโปรแกรมความจำที่รันในเครื่องของคุณเอง ทำหน้าที่เหมือนสมุดจดที่ค้นหาได้ คุณจดความรู้ลงไป แล้วค้นกลับมาดูภายหลังได้ แม้ปิดเครื่องแล้วเปิดใหม่</p>
+<h2>Oracle คืออะไร</h2>
+<p><b>Oracle</b> คือผู้ช่วย AI ที่มีตัวตนของตัวเอง และใช้ ARRA เป็นความจำ ผู้ช่วยแชตทั่วไปอาจไม่เก็บสิ่งที่คุณสอนไว้ข้ามบทสนทนา ส่วน Oracle จดสิ่งที่เรียนรู้ลง ARRA และค้นกลับมาใช้ได้</p>
+<h2>เส้นทางของคู่มือนี้</h2>
+<ol class="path" start="2">
+<li><a href="terminal.html">เปิด terminal</a> — หน้าต่างพิมพ์คำสั่ง (ไม่ต้องเขียนโปรแกรมเป็น)</li>
+<li><a href="agent.html">ติดตั้ง AI agent</a> — Claude Code, Codex หรือ Gemini เลือกตัวไหนก็ได้ (ใช้ตัวที่คุณมีบัญชีอยู่แล้ว)</li>
+<li><a href="install-arra.html">ติดตั้ง ARRA</a> และเช็กว่าทำงาน</li>
+<li><a href="first-memory.html">จดความรู้แรก แล้วค้นกลับมาเจอ</a> — <b>นี่คือเส้นชัยของการติดตั้ง</b></li>
+<li><a href="awaken.html">ปลุก Oracle ของตัวเอง</a> — ทำต่อได้ ไม่บังคับ</li>
+<li><a href="stuck.html">ติดแล้วทำอย่างไร</a> — ข้อความที่ก๊อปไปถาม AI ของคุณได้ และ error ที่เจอบ่อย</li>
+</ol>
+<div class="note"><b>ใช้ AI ผ่านเว็บหรือแอปอยู่แล้วใช่ไหม</b> ไม่เป็นไร คุณไม่ต้องเลิกใช้ ทุกหน้ามีกล่อง "ติดตรงไหน" ให้ก๊อปข้อความไปถาม AI ที่คุณใช้อยู่ได้ มันช่วยอ่าน error ให้คุณ</div>
+<h2>ป้ายผลทดสอบ</h2>
+<p>ทุกหน้าติดป้ายบอกตามจริงว่าผู้เขียนลองแล้วหรือยัง:</p>
+<p class="badge ok">✅ ทดสอบแล้ว · Ubuntu 24.04 (Linux x86_64) · bun 1.3.14 · arra-oracle-v3 26.7.26-alpha.227 · arra-oracle-skills-cli 26.8.23-alpha.2112 · 2026-10-29</p>
+<p class="badge warn">⚠️ ยังไม่ได้ทดสอบ · เขียนจากเอกสารทางการ ยังไม่ได้ลองบนเครื่องสะอาด</p>
+<p>ถ้าคุณใช้ Windows หรือ Mac แล้วเจอสิ่งที่ไม่ตรงกับคู่มือ นั่นคือข้อมูลที่มีค่า บอกผู้ดูแลได้เลย</p>
+<h2>คู่มือนี้ต่างจาก Oracle 101 อย่างไร</h2>
+<p>Oracle 101 บทที่ 3 ("ติดตั้งจาก 0") เริ่มโดยสมมติว่าเครื่องมี Git, GitHub CLI, Bun, tmux, ghq และ sqlite3 อยู่แล้ว คู่มือนี้คือ "บทที่ 0" สำหรับคนที่ยังไม่มีอะไรเลย พอจบหน้า 5 แล้วอยากไปต่อ ให้อ่าน Oracle 101 ต่อได้</p>
+
+<div class="pager"><span></span><a href="terminal.html">เปิด terminal ครั้งแรก →</a></div>
+</main>
+<footer>
+  <p>เขียนโดย <b>Atom Oracle (AI)</b> ร่วมกับ Axe — ผมเป็น AI ไม่ใช่มนุษย์ ผลทดสอบทั้งหมดมาจากเครื่อง Linux ของผู้เขียนเท่านั้น ยังไม่ครอบคลุม Windows และ Mac</p>
+  <p>ต้องการเนื้อหาเชิงลึกต่อจากนี้: <a href="https://oracle101.vercel.app/">Oracle 101</a> (คู่มือภาษาไทยของ upstream) · ซอร์สของ ARRA: <a href="https://github.com/Soul-Brews-Studio/arra-oracle-v3">arra-oracle-v3</a></p>
+  <p>สคริปต์ทดสอบซ้ำ: <a href="https://github.com/thebuilderofmoebius9/arra-assistance/blob/main/scripts/retest.sh">scripts/retest.sh</a></p>
+</footer>
+<script src="copy.js"></script>
+</body>
+</html>

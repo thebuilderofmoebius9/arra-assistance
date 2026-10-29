@@ -1,35 +1,71 @@
-:root{--bg:#fbfaf7;--fg:#1d2330;--mut:#5d6677;--line:#e3e0d8;--acc:#3b5bdb;--ok:#e6f4ea;--okb:#b7dfc1;--warn:#fff4e0;--warnb:#f0d9a8;--code:#111827;--codefg:#e5e7eb}
-@media (prefers-color-scheme:dark){:root{--bg:#14171f;--fg:#e8eaf0;--mut:#9aa3b5;--line:#2a2f3c;--acc:#8ea2ff;--ok:#16301f;--okb:#285b38;--warn:#35290f;--warnb:#6b5420;--code:#0b0e14;--codefg:#e5e7eb}}
+/* ธีม "หอสังเกตการณ์ของผู้หยั่งรู้" — Oracle = ผู้มองเห็นไกล, ความรู้ = ดวงดาว, ARRA = แผนที่ดาวที่ค้นกลับมาเจอ
+   ค่าเริ่มต้น = ท้องฟ้ายามค่ำ · โหมดสว่าง = กระดาษปาปิรัส (ตาม prefers-color-scheme) · ไม่โหลดอะไรจากภายนอก */
+:root{--bg:#0a0d1f;--bg2:#10163a;--fg:#ece8dc;--mut:#a3abc8;--line:#2a3158;--acc:#f0cf7a;--acc2:#4f5fe0;--gold:#e6c46c;--glow:rgba(230,196,108,.35);--card:rgba(255,255,255,.045);--ok:rgba(52,168,120,.14);--okb:#2f8f6b;--warn:rgba(230,170,60,.13);--warnb:#a9822f;--code:#070a18;--codefg:#e5e7eb;--star:rgba(255,255,255,.75);--h:"Noto Serif Thai","Noto Serif","Georgia","Noto Sans Thai",serif}
+@media (prefers-color-scheme:light){:root{--bg:#f6efde;--bg2:#efe4c8;--fg:#2a2438;--mut:#5c566e;--line:#d8c9a3;--acc:#7a4b00;--acc2:#3b3fa8;--gold:#b07a12;--glow:rgba(176,122,18,.28);--card:rgba(255,255,255,.55);--ok:#e3f2e6;--okb:#7fbf93;--warn:#fff1d4;--warnb:#d9b25c;--star:rgba(60,50,90,.18)}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.75 "Noto Sans Thai","Sarabun","Leelawadee UI",system-ui,sans-serif}
-header{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--line)}
-.brand{font-weight:700;color:var(--fg);text-decoration:none;font-size:1.1em}
+html{background:var(--bg)}
+body{margin:0;color:var(--fg);font:17px/1.75 "Noto Sans Thai","Sarabun","Leelawadee UI",system-ui,sans-serif;min-height:100vh;
+background:radial-gradient(1100px 600px at 80% -10%,var(--bg2) 0,transparent 60%),radial-gradient(800px 500px at 0% 30%,rgba(79,95,224,.14) 0,transparent 60%),var(--bg);background-attachment:fixed}
+/* ดวงดาว: จุดซ้ำสองชั้น + กะพริบช้า ๆ */
+body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.8;
+background-image:radial-gradient(1.2px 1.2px at 20px 30px,var(--star),transparent),radial-gradient(1px 1px at 90px 120px,var(--star),transparent),radial-gradient(1.6px 1.6px at 160px 60px,var(--star),transparent),radial-gradient(1px 1px at 210px 190px,var(--star),transparent),radial-gradient(1.3px 1.3px at 60px 210px,var(--star),transparent);
+background-size:240px 240px;animation:twinkle 7s ease-in-out infinite alternate}
+/* แสงตะเกียงตามเมาส์ (ตั้งค่า --mx/--my จาก interactive.js) */
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(420px circle at var(--mx,70%) var(--my,10%),var(--glow),transparent 70%);opacity:.45}
+@keyframes twinkle{from{opacity:.35}to{opacity:.9}}
+header{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(10,13,31,.5),transparent)}
+@media (prefers-color-scheme:light){header{background:none}}
+.sigil{width:34px;height:34px;flex:none;color:var(--gold)}
+.sigil .r1{transform-origin:50% 50%;animation:spin 40s linear infinite}
+.sigil .r2{transform-origin:50% 50%;animation:spin 26s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.brand{font-family:var(--h);font-weight:700;color:var(--gold);text-decoration:none;font-size:1.2em;letter-spacing:.04em}
 .sub{color:var(--mut);font-size:.9em}
-nav{display:flex;gap:6px;overflow-x:auto;padding:10px 20px;border-bottom:1px solid var(--line);font-size:.85em}
-nav a{white-space:nowrap;padding:4px 10px;border-radius:999px;color:var(--mut);text-decoration:none;border:1px solid transparent}
-nav a b{margin-right:4px}
-nav a.on{color:var(--fg);border-color:var(--acc)}
-main{max-width:760px;margin:0 auto;padding:24px 20px 40px}
-.step{margin:0;color:var(--mut);font-size:.85em}
-h1{margin:.2em 0 .6em;font-size:1.8em;line-height:1.3}
-h2{margin:1.8em 0 .4em;font-size:1.25em}
-h3{margin:1.4em 0 .3em;font-size:1.05em}
-a{color:var(--acc)}
+nav{display:flex;gap:4px;overflow-x:auto;padding:12px 20px;border-bottom:1px solid var(--line);font-size:.82em;counter-reset:none}
+nav a{white-space:nowrap;display:flex;align-items:center;gap:8px;padding:4px 12px 4px 4px;border-radius:999px;color:var(--mut);text-decoration:none;border:1px solid transparent;transition:color .2s,border-color .2s,box-shadow .2s}
+nav a b{display:inline-grid;place-items:center;width:24px;height:24px;margin:0;border-radius:50%;border:1px solid var(--line);color:var(--mut);font-size:.9em;font-weight:600;transition:all .2s}
+nav a:hover{color:var(--fg)}
+nav a:hover b{border-color:var(--gold);color:var(--gold)}
+nav a.on{color:var(--fg);border-color:var(--gold);box-shadow:0 0 18px -4px var(--glow)}
+nav a.on b{background:var(--gold);border-color:var(--gold);color:#17120a}
+nav a.ok b{background:var(--okb);border-color:var(--okb);color:#fff}
+nav a.ok::after{content:none}
+main{max-width:780px;margin:0 auto;padding:28px 20px 44px}
+.step{margin:0;color:var(--gold);font-size:.82em;letter-spacing:.12em}
+h1{margin:.15em 0 .5em;font:700 2em/1.3 var(--h);color:var(--fg);padding-bottom:.45em;background:linear-gradient(90deg,var(--gold),transparent 70%) left bottom/100% 1px no-repeat}
+h2{margin:1.9em 0 .4em;font:700 1.25em/1.4 var(--h)}
+h2::before{content:"✦";margin-right:.5em;color:var(--gold);font-size:.7em;vertical-align:.15em}
+h3{margin:1.4em 0 .3em;font-size:1.05em;color:var(--gold)}
+a{color:var(--acc);text-underline-offset:3px}
+a:hover{text-shadow:0 0 12px var(--glow)}
 .lead{font-size:1.1em;color:var(--mut)}
-code,kbd{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9em;background:rgba(127,127,127,.15);padding:1px 6px;border-radius:5px}
+.hero{display:flex;gap:22px;align-items:center;margin:.4em 0 1.2em;padding:18px 20px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,var(--card),transparent)}
+.hero svg{width:112px;height:112px;flex:none;color:var(--gold);filter:drop-shadow(0 0 14px var(--glow))}
+.hero .r1{transform-origin:50% 50%;animation:spin 50s linear infinite}
+.hero .r2{transform-origin:50% 50%;animation:spin 32s linear infinite reverse}
+.hero .iris{animation:breathe 4s ease-in-out infinite alternate;transform-origin:50% 50%}
+@keyframes breathe{to{transform:scale(1.18)}}
+.hero p{margin:.2em 0}
+.hero .tag{font:700 1.15em/1.5 var(--h);color:var(--gold)}
+.hero .mut{color:var(--mut);font-size:.92em}
+@media (max-width:520px){.hero{flex-direction:column;text-align:center}}
+code,kbd{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9em;background:rgba(127,127,127,.18);padding:1px 6px;border-radius:5px}
 .code{position:relative;margin:.6em 0 1em}
-.code pre{margin:0;padding:38px 16px 14px;background:var(--code);color:var(--codefg);border-radius:10px;overflow-x:auto;line-height:1.55}
+.code pre{margin:0;padding:38px 16px 14px;background:var(--code);color:var(--codefg);border-radius:10px;overflow-x:auto;line-height:1.55;border:1px solid var(--line);border-left:3px solid var(--gold)}
 .code code{background:none;padding:0;color:inherit;font-size:.88em}
-.copy{position:absolute;top:8px;right:8px;font:inherit;font-size:.75em;padding:3px 10px;border-radius:6px;border:1px solid #475066;background:#1f2533;color:#cbd2e1;cursor:pointer}
-.copy:hover{background:#2a3144}
+.copy{position:absolute;top:8px;right:8px;font:inherit;font-size:.75em;padding:3px 10px;border-radius:6px;border:1px solid #4a5280;background:#161c3a;color:#d7dcf0;cursor:pointer}
+.copy:hover{background:#222a52;border-color:var(--gold)}
 .badge{margin:.8em 0;padding:8px 12px;border-radius:8px;font-size:.82em;line-height:1.5;border:1px solid}
 .badge.ok{background:var(--ok);border-color:var(--okb)}
 .badge.warn{background:var(--warn);border-color:var(--warnb)}
-.note,.done{margin:1em 0;padding:12px 16px;border-radius:10px;border:1px solid var(--line);background:rgba(127,127,127,.08)}
+.note,.done{margin:1em 0;padding:12px 16px;border-radius:12px;border:1px solid var(--line);background:var(--card)}
+.note{border-left:3px solid var(--acc2)}
 .done{background:var(--ok);border-color:var(--okb)}
 .path li{margin:.4em 0}
 .pager{display:flex;justify-content:space-between;gap:12px;margin-top:2.5em;padding-top:1em;border-top:1px solid var(--line)}
-footer{max-width:760px;margin:0 auto;padding:0 20px 40px;color:var(--mut);font-size:.82em}
+.pager a{padding:8px 16px;border:1px solid var(--line);border-radius:999px;text-decoration:none;background:var(--card);transition:border-color .2s,box-shadow .2s}
+.pager a:hover{border-color:var(--gold);box-shadow:0 0 18px -4px var(--glow);text-shadow:none}
+footer{max-width:780px;margin:0 auto;padding:1em 20px 40px;color:var(--mut);font-size:.82em;border-top:1px solid var(--line)}
 footer p{margin:.4em 0}
 
 /* ---- ส่วนโต้ตอบ ---- */
@@ -42,7 +78,7 @@ footer p{margin:.4em 0}
 .js .os-label{display:none}
 .prog{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:.8em;color:var(--mut)}
 .prog .bar{width:110px;height:6px;border-radius:999px;background:var(--line);overflow:hidden}
-.prog .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#6ee7b7,#8ea2ff);transition:width .4s}
+.prog .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8ea2ff,var(--gold));box-shadow:0 0 8px var(--glow);transition:width .4s}
 .nojs-hide{display:none}
 nav a.ok::after{content:" ✓";color:#2f9e6b;font-weight:700}
 .chk-box{margin:1.8em 0 0;padding:12px 16px;border:1px dashed var(--line);border-radius:10px}
@@ -51,11 +87,11 @@ nav a.ok::after{content:" ✓";color:#2f9e6b;font-weight:700}
 .chk input{margin-top:.5em;width:18px;height:18px;accent-color:var(--acc)}
 .chk-note{margin:.4em 0 0;color:var(--mut);font-size:.78em}
 .done.reached{box-shadow:0 0 0 2px #6ee7b7 inset}
-.mem3d{margin:1.4em 0;padding:14px 16px 16px;border-radius:14px;background:#0c1020;color:#e8eaf0;border:1px solid #27304f}
-.mem3d h2{margin:0 0 .2em;font-size:1.1em;color:#fff}
+.mem3d{margin:1.4em 0;padding:14px 16px 16px;border-radius:14px;background:#0a0d1f;color:#e8eaf0;border:1px solid #3a3f6e;box-shadow:0 0 40px -12px var(--glow)}
+.mem3d h2{margin:0 0 .2em;font-size:1.1em;color:#f0cf7a}
 .mem3d p{margin:.3em 0;color:#aab3cc;font-size:.88em;line-height:1.6}
 .mem-stage{margin:.5em 0}
-.mem-canvas{display:block;width:100%;border-radius:10px;cursor:grab;background:radial-gradient(ellipse at center,#12183a 0,#0c1020 70%)}
+.mem-canvas{display:block;width:100%;border-radius:10px;cursor:grab;background:radial-gradient(ellipse at center,#161d4a 0,#0a0d1f 72%)}
 .mem-canvas:active{cursor:grabbing}
 .mem-add,.mem-find{display:flex;gap:8px;margin:.5em 0}
 .mem3d input[type=text],.mem3d input[type=search],.builder input,.builder select,.builder textarea,.term input{flex:1;min-width:0;font:inherit;font-size:.92em;padding:8px 12px;border-radius:8px;border:1px solid #3a4468;background:#10162e;color:#fff}
@@ -81,4 +117,4 @@ nav a.ok::after{content:" ✓";color:#2f9e6b;font-weight:700}
 @keyframes fall{to{transform:translateY(105vh) rotate(540deg);opacity:.9}}
 @keyframes rise{from{opacity:0;transform:translate(-50%,12px)}}
 @media (max-width:520px){.prog{margin-left:0;width:100%}.prog .bar{flex:1}}
-@media (prefers-reduced-motion:reduce){.finish{animation:none}.prog .bar i{transition:none}}
+@media (prefers-reduced-motion:reduce){.finish{animation:none}.prog .bar i{transition:none}body::before,.sigil .r1,.sigil .r2,.hero .r1,.hero .r2,.hero .iris{animation:none}body::after{display:none}}

@@ -11,6 +11,16 @@
   };
   var reduce = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
 
+  /* ---------- แสงตะเกียงตามเมาส์ (ตกแต่งอย่างเดียว ไม่เก็บ/ส่งตำแหน่งไปไหน) ---------- */
+  if (!reduce && window.matchMedia && matchMedia("(pointer:fine)").matches) {
+    var lampRaf = 0, lx = 0, ly = 0, root = document.documentElement;
+    document.addEventListener("pointermove", function (e) {
+      lx = e.clientX; ly = e.clientY;
+      if (lampRaf) return;
+      lampRaf = requestAnimationFrame(function () { lampRaf = 0; root.style.setProperty("--mx", lx + "px"); root.style.setProperty("--my", ly + "px"); });
+    }, { passive: true });
+  }
+
   /* ---------- 4) ความคืบหน้า ---------- */
   var ITEMS = window.ARRA_ITEMS || {};
   var PKEY = "arra-progress-v1";

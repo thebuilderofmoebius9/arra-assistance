@@ -21,6 +21,12 @@
     }, { passive: true });
   }
 
+  /* เลื่อนแถบขั้นตอนบนจอแคบให้เห็นขั้นปัจจุบัน (เลื่อนเฉพาะแถบ ไม่เลื่อนทั้งหน้า) */
+  (function () {
+    var nav = $("nav"), on = nav && $("a.on", nav);
+    if (on && nav.scrollWidth > nav.clientWidth) nav.scrollLeft = on.offsetLeft - (nav.clientWidth - on.offsetWidth) / 2;
+  })();
+
   /* ---------- 4) ความคืบหน้า ---------- */
   var ITEMS = window.ARRA_ITEMS || {};
   var PKEY = "arra-progress-v1";

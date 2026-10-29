@@ -1,9 +1,10 @@
 /* ธีม "หอสังเกตการณ์ของผู้หยั่งรู้" — Oracle = ผู้มองเห็นไกล, ความรู้ = ดวงดาว, ARRA = แผนที่ดาวที่ค้นกลับมาเจอ
    ค่าเริ่มต้น = ท้องฟ้ายามค่ำ · โหมดสว่าง = กระดาษปาปิรัส (ตาม prefers-color-scheme) · ไม่โหลดอะไรจากภายนอก */
-:root{--bg:#0a0d1f;--bg2:#10163a;--fg:#ece8dc;--mut:#a3abc8;--line:#2a3158;--acc:#f0cf7a;--acc2:#4f5fe0;--gold:#e6c46c;--glow:rgba(230,196,108,.35);--card:rgba(255,255,255,.045);--ok:rgba(52,168,120,.14);--okb:#2f8f6b;--warn:rgba(230,170,60,.13);--warnb:#a9822f;--code:#070a18;--codefg:#e5e7eb;--star:rgba(255,255,255,.75);--h:"Noto Serif Thai","Noto Serif","Georgia","Noto Sans Thai",serif}
-@media (prefers-color-scheme:light){:root{--bg:#f6efde;--bg2:#efe4c8;--fg:#2a2438;--mut:#5c566e;--line:#d8c9a3;--acc:#7a4b00;--acc2:#3b3fa8;--gold:#b07a12;--glow:rgba(176,122,18,.28);--card:rgba(255,255,255,.55);--ok:#e3f2e6;--okb:#7fbf93;--warn:#fff1d4;--warnb:#d9b25c;--star:rgba(60,50,90,.18)}}
+:root{--bg:#0a0d1f;--bg2:#10163a;--fg:#ece8dc;--mut:#a3abc8;--line:#2a3158;--acc:#f0cf7a;--acc2:#4f5fe0;--on-acc:#17120a;--gold:#e6c46c;--glow:rgba(230,196,108,.35);--card:rgba(255,255,255,.045);--ok:rgba(52,168,120,.14);--okb:#2f8f6b;--warn:rgba(230,170,60,.13);--warnb:#a9822f;--code:#070a18;--codefg:#e5e7eb;--star:rgba(255,255,255,.75);--h:"Noto Serif Thai","Noto Serif","Georgia","Noto Sans Thai",serif}
+@media (prefers-color-scheme:light){:root{--bg:#f6efde;--bg2:#efe4c8;--fg:#2a2438;--mut:#5c566e;--line:#d8c9a3;--acc:#7a4b00;--on-acc:#fff;--acc2:#3b3fa8;--gold:#8a5c08;--glow:rgba(176,122,18,.28);--card:rgba(255,255,255,.55);--ok:#e3f2e6;--okb:#7fbf93;--warn:#fff1d4;--warnb:#d9b25c;--star:rgba(60,50,90,.18)}}
 *{box-sizing:border-box}
-html{background:var(--bg)}
+html{background:var(--bg);color-scheme:dark}
+@media (prefers-color-scheme:light){html{color-scheme:light}}
 body{margin:0;color:var(--fg);font:17px/1.75 "Noto Sans Thai","Sarabun","Leelawadee UI",system-ui,sans-serif;min-height:100vh;
 background:radial-gradient(1100px 600px at 80% -10%,var(--bg2) 0,transparent 60%),radial-gradient(800px 500px at 0% 30%,rgba(79,95,224,.14) 0,transparent 60%),var(--bg);background-attachment:fixed}
 /* ดวงดาว: จุดซ้ำสองชั้น + กะพริบช้า ๆ */
@@ -72,7 +73,7 @@ footer p{margin:.4em 0}
 .tabs{display:none;gap:6px;margin:.8em 0 .4em}
 .js .tabs{display:flex}
 .os-tab{font:inherit;font-size:.85em;padding:5px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
-.os-tab[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
+.os-tab[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:var(--on-acc);font-weight:600}
 .os-pane[hidden]{display:none}
 .os-label{font-weight:700;margin:.8em 0 .2em}
 .js .os-label{display:none}
@@ -95,7 +96,7 @@ nav a.ok::after{content:" ✓";color:#2f9e6b;font-weight:700}
 .mem-canvas:active{cursor:grabbing}
 .mem-add,.mem-find{display:flex;gap:8px;margin:.5em 0}
 .mem3d input[type=text],.mem3d input[type=search],.builder input,.builder select,.builder textarea,.term input{flex:1;min-width:0;font:inherit;font-size:.92em;padding:8px 12px;border-radius:8px;border:1px solid #3a4468;background:#10162e;color:#fff}
-.mem3d button,.term button,.builder-copy{font:inherit;font-size:.88em;padding:8px 16px;border-radius:8px;border:0;background:var(--acc);color:#fff;cursor:pointer}
+.mem3d button,.term button,.builder-copy{font:inherit;font-size:.88em;padding:8px 16px;border-radius:8px;border:0;background:var(--acc);color:var(--on-acc);font-weight:600;cursor:pointer}
 .mem-status{min-height:1.6em;color:#ffd166!important}
 .mem-note{font-size:.78em!important}
 .term{margin:1em 0;border-radius:12px;overflow:hidden;background:#0b0e14;border:1px solid #27304f;color:#e5e7eb;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9em}
@@ -105,7 +106,7 @@ nav a.ok::after{content:" ✓";color:#2f9e6b;font-weight:700}
 .term-form{display:flex;gap:8px;align-items:center;padding:8px 12px;border-top:1px solid #27304f}
 .term-form span{color:#6ee7b7}
 .term-hints{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 10px}
-.term-hints button{background:#1f2a4d;font-family:inherit;padding:4px 10px;font-size:.8em}
+.term-hints button{background:#1f2a4d;color:#e8eaf0;font-weight:400;font-family:inherit;padding:4px 10px;font-size:.8em}
 .sr{position:absolute;left:-9999px}
 .builder{margin:1em 0;padding:14px 16px;border-radius:12px;background:#0c1020;color:#e8eaf0;border:1px solid #27304f}
 .builder label{display:block;margin:.6em 0 .2em;font-size:.85em;color:#aab3cc}
@@ -118,3 +119,21 @@ nav a.ok::after{content:" ✓";color:#2f9e6b;font-weight:700}
 @keyframes rise{from{opacity:0;transform:translate(-50%,12px)}}
 @media (max-width:520px){.prog{margin-left:0;width:100%}.prog .bar{flex:1}}
 @media (prefers-reduced-motion:reduce){.finish{animation:none}.prog .bar i{transition:none}body::before,.sigil .r1,.sigil .r2,.hero .r1,.hero .r2,.hero .iris{animation:none}body::after{display:none}}
+
+/* ---- เข้าถึงง่าย (ตรวจด้วย audit: contrast, โฟกัสคีย์บอร์ด, ขนาดปุ่มสัมผัส) ---- */
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:12px;top:-60px;z-index:50;padding:10px 16px;border-radius:8px;background:var(--fg);color:var(--bg);font-weight:700;text-decoration:none;transition:top .15s}
+.skip:focus{top:10px}
+a,button,summary,label.chk{touch-action:manipulation}
+nav a{min-height:44px}
+nav a[aria-current="page"]{color:var(--fg)}
+.chk{min-height:44px;align-items:center;padding:2px 0}
+.chk input{margin-top:0;flex:none}
+.pager a{display:inline-flex;align-items:center;min-height:44px}
+.os-tab,.copy{min-height:44px}
+.copy{padding:3px 14px}
+.term-hints button{min-height:36px}
+@media (pointer:fine){.os-tab,.copy{min-height:34px}.copy{min-height:30px}}
+@media (prefers-contrast:more){:root{--line:#6b749c;--mut:#c4cae0}}
+.brand{display:inline-flex;align-items:center;min-height:44px}
+.path li{margin:.7em 0}
